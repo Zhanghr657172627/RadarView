@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ScanPersonView">
+        <!--圆圈和交叉线的颜色-->
+        <attr name="scanCircleColor" format="color" />
+        <!--圆圈的数量-->
+        <attr name="scabCircleNum" format="integer" />
+        <!--扫描的颜色 RadarView会对这个颜色做渐变透明处理-->
+        <attr name="scanSweepColor" format="color" />
+        <!--扫描的转速，表示几秒转一圈-->
+        <attr name="scanSpeed" format="float" />
+    </declare-styleable>
+</resources>
