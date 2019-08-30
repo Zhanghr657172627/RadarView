@@ -50,6 +50,11 @@ public class ScanPersonView extends View {
     private int radius = 0;
     private List<Integer> proViews = new ArrayList<>();
 
+    private int[] ints = new int[]{Color.TRANSPARENT, changeAlpha(mSweepColor, 0), changeAlpha(mSweepColor, 168),
+            changeAlpha(mSweepColor, 255), changeAlpha(mSweepColor, 255)
+    };
+    private float[] floats = new float[]{0.0f, 0.5f, 1f, 1.6f, 2.2f};
+
     public ScanPersonView(Context context) {
         super(context);
         init();
@@ -218,16 +223,12 @@ public class ScanPersonView extends View {
         }
     }
 
-
     /**
      * 画扫描效果
      */
     private void drawSweep(Canvas canvas, int cx, int cy, int radius) {
         //扇形的透明的渐变效果
-        SweepGradient sweepGradient = new SweepGradient(cx, cy,
-                new int[]{Color.TRANSPARENT, changeAlpha(mSweepColor, 0), changeAlpha(mSweepColor, 168),
-                        changeAlpha(mSweepColor, 255), changeAlpha(mSweepColor, 255)
-                }, new float[]{0.0f, 0.5f, 1f, 1.6f, 2.2f});
+        SweepGradient sweepGradient = new SweepGradient(cx, cy, ints, floats);
         mSweepPaint.setShader(sweepGradient);
         //先旋转画布，再绘制扫描的颜色渲染，实现扫描时的旋转效果。
         canvas.rotate(-90 + mDegrees, cx, cy);
